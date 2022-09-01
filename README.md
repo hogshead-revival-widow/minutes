@@ -46,10 +46,6 @@ Mit *minutes* können redaktionell Arbeitende Protokolle von Ereignissen (wie z.
 Die API ist unter http://localhost:8000 (Swagger UI unter: http://localhost:8000/docs) erreichbar. 
 
 Und *minutes* wartet nun ohne Fehler unter http://localhost:5173
-
-## API-Client für Frontend automatisch generieren
- 
-Unter http://localhost:8000/openapi.json ist die API-Spezifikation verfügbar. Mit dieser kann per `npx swagger-typescript-api -p openapi.json -o ./src --unwrap-response-data --single-http-client --modular` ein Client erzeugt werden; dieser muss in frontend/lib/api kopiert werden. 
  
 
 ## Produktion
@@ -69,6 +65,12 @@ Je nach Verwendungszweck empfiehlt sich in `.secrets.toml` unter `[production.db
 
 # Nutzung
 
+## URLs
+
 Wurde nichts geändert, ist *minutes* nun unter http://localhost:5173 zu erreichen, die API unter http://localhost:8000 (Swagger UI unter: http://localhost:8000/docs).
 
+## API-Client für Frontend automatisch generieren
+ 
+Werden Anpassungen am Backend vorgenommen, muss ggf. der Frontend-Client aktualisiert werden. 
 
+Dazu ist unter http://localhost:8000/openapi.json die automatisch erzeugte API-Spezifikation verfügbar. Mit dieser kann per `npx swagger-typescript-api -p openapi.json -o ./src --unwrap-response-data --single-http-client --modular` ein Client erzeugt werden. Nun sind die gleichnamen Dateien in `frontend/lib/api` mit den erzeugten zu ersetzen bzw. `-o` entsprechend anzupassen.
