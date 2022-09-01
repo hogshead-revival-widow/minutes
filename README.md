@@ -45,13 +45,13 @@ Mit *minutes* können redaktionell Arbeitende Protokolle von Ereignissen (wie z.
 
 Die API ist unter http://localhost:8000 (Swagger UI unter: http://localhost:8000/docs) erreichbar. 
 
-Und *minutes* wartet nun ohne Fehler unter (http://localhost:5173)[http://localhost:5173].
+Und *minutes* wartet nun ohne Fehler unter http://localhost:5173
 
 ## Produktion
 
 ### Frontend
 
-Statt `npm run dev` (Schritt 6) `npm run build` ausführen.  In `minutes/frontend/build` finden sich nun Javascript-Dateien, die so von beliebigen Webservern statisch ausgeliefert werden können. Mehr Informationen dazu finden sich (https://kit.svelte.dev/docs/adapters#supported-environments-static-sites)[hier].
+Statt `npm run dev` (Schritt 6) `npm run build` ausführen.  In `minutes/frontend/build` finden sich nun Javascript-Dateien, die so von beliebigen Webservern statisch ausgeliefert werden können. Mehr Informationen dazu finden sich [hier](https://kit.svelte.dev/docs/adapters#supported-environments-static-sites).
 
 Mit `npm run preview` lässt sich die Produktivbuild ausprobieren. 
 
@@ -59,11 +59,11 @@ Mit `npm run preview` lässt sich die Produktivbuild ausprobieren.
 
 Statt `minutes` (Schritt 8) `ENV_FOR_MINUTES=production minutes` ausführen und die mit `?` markierten Werte in `minutes/backend/settings/config.toml` ersetzen.
 
-Je nach Verwendungszweck empfiehlt sich in `.secrets.toml` unter `[production.db]` eine andere Datenbank als SQLite (z. B. PostgreSQL) einzusetzen sowie uvicorn in Verbindung mit z. B. guvicorn zu nutzen; Informationen zu Letzterem finden sich (https://fastapi.tiangolo.com/deployment/server-workers/)[hier].
+Je nach Verwendungszweck empfiehlt sich in `.secrets.toml` unter `[production.db]` eine andere Datenbank als SQLite (z. B. PostgreSQL) einzusetzen sowie uvicorn in Verbindung mit z. B. guvicorn zu nutzen; Informationen zu Letzterem finden sich [hier](https://fastapi.tiangolo.com/deployment/server-workers/).
 
 
 # Nutzung
 
-Wurde nichts geändert, ist *minutes* nun unter (http://localhost:5173/)[http://localhost:5173] zu erreichen, die API unter http://localhost:8000 (Swagger UI unter: http://localhost:8000/docs).
+Wurde nichts geändert, ist *minutes* nun unter http://localhost:5173 zu erreichen, die API unter http://localhost:8000 (Swagger UI unter: http://localhost:8000/docs).
 
 
