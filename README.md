@@ -2,7 +2,7 @@ Mit *minutes* können redaktionell Arbeitende Protokolle von Ereignissen (wie z.
 
 - Ereignisse einmal zu notieren und das Wissen zugleich **mit allen** im Haus **teilen** zu können,
 - Ereignis-**Expert:innen sicht- und ansprechbar** zu machen,
-- und sie schließlich **strukturiert zu erfassen**, was eine Weiterverwendung (zum Beispiel zur Datenanalyse oder Übernahme in Archivsysteme) erleichtert.
+- und Ereignisse schließlich **strukturiert zu erfassen**, was eine Weiterverwendung (zum Beispiel zur Datenanalyse oder Übernahme in Archivsysteme) erleichtert.
 
 **Achtung**: Zurzeit ist *minutes* eine Alpha-Version.
 
