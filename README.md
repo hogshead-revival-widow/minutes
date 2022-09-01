@@ -8,21 +8,11 @@ Mit *minutes* können redaktionell Arbeitende Protokolle von Ereignissen (wie z.
 
 # Screenshots
 
-![Übersicht Protokoll](/screenshots/Übersicht.png?raw=true "Protokoll: Übersicht")
-
-![Kontakt Ereignis-Expert:in](/screenshots/Kontakt.png?raw=true "Direkter Verweis im Ereignis auf Expert:in")
-
-![Visualisierung](/screenshots/Visualisierung.png?raw=true "Protokoll: Visualisierung")
-
-![Suchfunktion](/screenshots/Suchfunktion.png?raw=true "Suchen im Protokoll")
-
-![Visualisierte Suchergebnisse](/screenshots/Suche_Visualisierung.png?raw=true "Interaktive Visualisierung")
-
-![Eingabemaske](/screenshots/Eingabemaske.png?raw=true "Eingabemaske")
-
-![Bearbeitungsmaske](/screenshots/Bearbeitungsmaske.png?raw=true "Bearbeitungsmaske")
-
-![Swagger UI für Beispiel-Endpunkt](/screenshots/Bearbeitungsmaske.png?raw=true "API durchgängig modelliert")
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|![Übersicht Protokoll](/screenshots/Übersicht.png?raw=true)  Übersicht |  ![Kontakt Ereignis-Expert:in](/screenshots/Kontakt.png?raw=true "Direkter Verweis im Ereignis auf Expert:in") Verweis auf Ereignis-Expertin|![Visualisierung](/screenshots/Visualisierung.png?raw=true "Protokoll: Visualisierung") Visualisierung |
+|![Suchfunktion](/screenshots/Suchfunktion.png?raw=true "Suchen im Protokoll") Suchfunktion |  ![Visualisierte Suchergebnisse](/screenshots/Suche_Visualisierung.png?raw=true "Interaktive Visualisierung") Interaktive Visualisierung |![Eingabemaske](/screenshots/Eingabemaske.png?raw=true "Eingabemaske") Eingabemaske |
+|![Bearbeitungsmaske](/screenshots/Bearbeitungsmaske.png?raw=true "Bearbeitungsmaske") Bearbeitungsmaske  |  ![Swagger UI für Beispiel-Endpunkt](/screenshots/API.png?raw=true "Modellierte API")| |
 
 
 # Installation 
