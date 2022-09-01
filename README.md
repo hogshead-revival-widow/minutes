@@ -40,7 +40,8 @@ Mit *minutes* können redaktionell Arbeitende Protokolle von Ereignissen (wie z.
 5. `python3 -m venv .venv` 
 6. `source .venv/bin/activate`
 7. `pip install .`
-8. `minutes` (vgl. `minutes --help` für Konfigurationsmöglichkeiten)
+8. `mkdir uploads` (oder was auch immer in in .secrets.toml angegeben wurde)
+9. `minutes` (vgl. `minutes --help` für Konfigurationsmöglichkeiten)
 
 Die API ist unter http://localhost:8000 (Swagger UI unter: http://localhost:8000/docs) erreichbar. 
 
