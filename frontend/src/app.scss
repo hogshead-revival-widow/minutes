@@ -1,0 +1,223 @@
+/* Variables and mixins from the src/variables.scss file are available here without importing */
+
+@import 'bulma/sass/utilities/_all';
+@import 'bulma/sass/base/_all';
+@import 'bulma/sass/elements/_all';
+@import 'bulma/sass/form/_all';
+@import 'bulma/sass/components/_all';
+@import 'bulma/sass/grid/_all';
+@import 'bulma/sass/helpers/_all';
+@import 'bulma/sass/layout/_all';
+@import 'bulma-list/sass/bulma-list';
+@import 'quill/dist/quill.snow.css';
+
+
+/*
+	Basic
+*/
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	background-image: $background-image;
+}
+
+main {
+	padding-top: 8%;
+	padding-bottom: 16%;
+}
+
+
+.lead {
+	color: black;
+	font-weight: 900 !important;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.fixed-width {
+	width: 40rem;
+}
+
+.content {
+	@extend .boxed-content;
+	background: $modal-content-background;
+	margin: 0;
+}
+
+.boxed-content {
+	@extend .container, .fixed-width, .box, .p-6;
+}
+
+/*
+	Sticky sidebar menu
+*/
+
+.sticky-menu {
+	position: sticky;
+	top: 10%;
+	margin-left: -15%;
+	float: left;
+	z-index: 10;
+}
+
+.sticky-menu li {
+	margin-top: 1em;
+}
+
+.sticky-menu-button {
+	@extend .button, .is-medium, .is-dark;
+}
+
+/*
+	List
+*/
+
+.list-item-icon {
+	@extend .icon, .is-size-4, .mr-2;
+}
+
+/*
+	Top right menu
+*/
+
+.top-menu {
+	position: absolute;
+	top: 0%;
+	right: 0.5em;
+}
+
+/*
+	Forms
+*/
+
+.form-button {
+	@extend .button, .is-primary, .justify-center, .is-fullwidth, .is-medium;
+}
+.form-error {
+	@extend .help, .is-danger;
+}
+
+.force-fullwidth {
+	width: 100% !important;
+}
+
+/*
+	Quill
+*/
+
+// make editor resizable
+.ql-editor {
+	resize: vertical;
+	overflow-y: scroll;
+	@extend .textarea;
+}
+.ql-container {
+	height: 60% !important;
+}
+
+// translations
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after {
+	content: "Übernehmen";
+}
+.ql-snow .ql-tooltip[data-mode=link]::before {
+	content: 'URL:';
+}
+.ql-snow .ql-tooltip::before {
+	content: 'URL:';
+}
+.ql-snow .ql-tooltip a.ql-remove::before {
+	content: 'Löschen';
+}
+.ql-snow .ql-tooltip a.ql-action::after {
+	content: 'Ändern';
+}
+
+
+/*
+	Filter
+*/
+
+.has-text-danger-hover:hover,
+.has-text-danger-hover:active,
+.has-text-danger-hover:hover>svg {
+	@extend .has-text-danger;
+	text-decoration: none !important;
+}
+
+.active-filter:hover {
+	@extend .is-danger;
+}
+
+.filter-menu {
+	min-width: 25em;
+	max-height: 80vh;
+	overflow: auto;
+}
+
+.filter-button {
+	@extend .button, .is-fullwidth, .has-text-left;
+}
+
+/*
+	FAQ
+*/
+
+dl {
+	overflow: auto;
+	max-height: 80%;
+}
+
+dl dt {
+	@extend .mb-2, .title, .lead, .is-size-5;
+	font-style: normal !important;
+}
+
+dl dd {
+	@extend .mb-4;
+	text-align: justify;
+}
+
+
+/*
+	Autocomplete
+*/
+
+.autocomplete-input {
+	@extend .input, .mr-2, .has-addons, .p-3;
+}
+
+.autocomplete-list-item.selected {
+	@extend .has-background-link;
+}
+
+.autocomplete-list-item.confirmed {
+	@extend .has-background-link-light, .has-text-black;
+}
+
+/*
+	Dropdown
+*/
+.dropdown-content {
+	max-height: 80vh;
+	overflow: auto;
+}
+
+
+/*
+	Chart
+*/
+
+
+.apexcharts-tooltip-text-label {
+	@extend .is-clickable;
+}
+
+
+
+
+
+
+

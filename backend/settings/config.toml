@@ -1,0 +1,34 @@
+dynaconf_merge = true
+
+[default.time]
+tz_name = "Europe/Berlin"
+
+[default.about]
+title = "minutes API"
+
+
+[development.db]
+echo = false
+
+[development.server]
+log_level = "debug"
+reload = true
+cors_origins = ["http://localhost:5173", "http://localhost:4173"]
+host = "localhost"
+port = "8000"
+scheme = "http"
+
+[development.frontend]
+base_url = "http://localhost:5173"
+
+
+[production.frontend]
+base_url = "http://????:????"
+
+[production.server]
+log_level = "error"
+reload = false
+cors_origins = ["http://????:????"]
+host = "0.0.0.0"
+port = "8000"
+scheme = "https"
