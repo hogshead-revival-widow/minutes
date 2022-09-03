@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 
 from fastapi import APIRouter
@@ -25,7 +25,7 @@ def create_entity(entity: schemas.EntityCreate, session: Session = ActiveSession
 @router.get("/search", response_model=List[schemas.EntityRead])
 def search_entities(
     name: str,
-    discriminator: schemas.EntityType,
+    discriminator: Optional[schemas.EntityType] = None,
     limit: int = 10,
     session: Session = ActiveSession,
 ):

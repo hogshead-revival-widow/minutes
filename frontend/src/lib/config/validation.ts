@@ -27,12 +27,15 @@ const time = yup
 		return time <= Date.now();
 	});
 
+const entities = yup.array();
+
 export const addEventSchema = yup.object({
 	title,
 	date,
 	time,
 	contact,
-	description
+	description,
+	entities
 });
 
 export const addEmailSchema = yup.object().shape({

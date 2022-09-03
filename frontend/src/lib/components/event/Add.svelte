@@ -21,23 +21,33 @@
 	// @ts-expect-error: Bug in svelte language tools
 	const { close, open } = getContext('simple-modal');
 
-	const initialValues: Pick<EventCreate, 'title' | 'contact' | 'date' | 'time' | 'description'> = {
+	const initialValues: Pick<
+		EventCreate,
+		'title' | 'contact' | 'date' | 'time' | 'description' | 'entities'
+	> = {
 		title: '',
 		contact: $contact,
 		date: '',
 		time: '',
-		description: ''
+		description: '',
+		entities: []
 	};
 	const fields: Omit<ComponentProps<Field> & { name: keyof typeof initialValues }, 'key'>[] = [
 		{ type: 'text', name: 'title', label: "Kurz gesagt: Worum geht's?" },
 		{ type: 'date', name: 'date', label: 'Wann ist es passiert?' },
 		{ type: 'time', name: 'time', label: 'Und um wieviel Uhr?' },
 		{ type: 'text', name: 'contact', label: 'Wen bei Rückfragen kontaktieren?' },
-		{ type: 'editor', name: 'description', label: 'Gibt es mehr zu sagen oder Links?' }
+		{ type: 'editor', name: 'description', label: 'Gibt es mehr zu sagen oder Links?' },
+		{
+			type: 'entities',
+			name: 'entities',
+			label: 'Gibt es relevante Personen, Orte oder Institutionen?'
+		}
 	];
 
 	const afterSubmit = async (values, currentInitialValues) => {
 		values = Object.fromEntries(Object.entries(values).filter(([key, value]) => value !== ''));
+		values['entities'] = values['entities'].map((entity) => entity.id);
 		const addedEvent = await quickAddEvent({
 			collection,
 			timeline,
@@ -52,7 +62,7 @@
 				collection,
 				timeline,
 				activeFilters,
-				openTab: 'whoWhen',
+				openTab: 'links',
 				offerAddEvent: true,
 				showFooter: false
 			});

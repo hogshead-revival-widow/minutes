@@ -1,5 +1,7 @@
 <script lang="ts" context="module">
 	import Fa from 'svelte-fa';
+
+	import { editor } from '$lib/actions/editor';
 	import type { ComponentProps } from 'svelte';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
@@ -7,10 +9,12 @@
 </script>
 
 <script lang="ts">
-	import { editor } from '$lib/actions/editor';
-	export let key: any;
+	import AddEntity from '$lib/components/event/AddEntity.svelte';
 
-	export let type: 'text' | 'date' | 'time' | 'textarea' | 'editor' | 'slotted' = 'text';
+	export let key: Symbol;
+
+	export let type: 'text' | 'date' | 'time' | 'textarea' | 'editor' | 'entities' | 'slotted' =
+		'text';
 	export let disabled = false;
 
 	const formState: Writable<ReturnType<typeof createForm>> = getContext(key);
@@ -101,6 +105,8 @@
 			on:blur={handleChange}
 			{...excludeKey($$props)}
 		/>
+	{:else if type === 'entities'}
+		<AddEntity {form} {name} {...excludeKey($$props)} />
 	{/if}
 
 	<p class="help mb-2 form-error" class:is-invisible={$errors[name] === ''}>{$errors[name]}</p>

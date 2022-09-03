@@ -26,10 +26,12 @@ def create_entity(session: Session, entity: schemas.EntityCreate) -> database.An
 def get_entities_by_name(
     session: Session,
     name: str,
-    discriminator: database.EntityType,
+    discriminator: Optional[database.EntityType],
     limit: Optional[int],
 ) -> List[database.AnyEntity]:
-    Entity = discriminator.get_model()
+    Entity = database.Entity
+    if discriminator is not None:
+        Entity = discriminator.get_model()
     statement = select(Entity).where(Entity.name.ilike("%" + escape_like(name) + "%"))
     if limit is not None:
         statement = statement.limit(limit)

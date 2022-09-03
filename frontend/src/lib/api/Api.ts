@@ -313,7 +313,7 @@ export class Api<SecurityDataType = unknown> {
 	 * @request GET:/api/entity/search
 	 */
 	searchEntities = (
-		query: { name: string; discriminator: EntityType; limit?: number },
+		query: { name: string; discriminator?: EntityType; limit?: number },
 		params: RequestParams = {}
 	) =>
 		this.http.request<EntityRead[], HTTPValidationError>({
