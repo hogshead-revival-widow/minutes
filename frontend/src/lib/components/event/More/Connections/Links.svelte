@@ -8,8 +8,7 @@
 	export let currentEvent: Writable<EventRead>;
 
 	const links = listURLs($currentEvent?.description);
-	const howToAddLink =
-		'Klicke auf den Tab <em>Was & Wann</em> und schreibe Links in die Textbox bei "Details", um Links hinzufügen.';
+	const howToAddLink = 'Klicke auf den Tab <em>Was & Wann</em>, um Links hinzufügen.';
 </script>
 
 {#if links.length > 0}
