@@ -35,8 +35,15 @@
 	const fields: Omit<ComponentProps<Field> & { name: keyof typeof initialValues }, 'key'>[] = [
 		{ type: 'text', name: 'title', label: "Kurz gesagt: Worum geht's?" },
 		{ type: 'date', name: 'date', label: 'Wann ist es passiert?' },
+		{
+			type: 'text',
+			name: 'contact',
+			label: 'Wen bei Rückfragen kontaktieren?',
+			divider: {
+				label: 'optional'
+			}
+		},
 		{ type: 'time', name: 'time', label: 'Und um wieviel Uhr?' },
-		{ type: 'text', name: 'contact', label: 'Wen bei Rückfragen kontaktieren?' },
 		{ type: 'editor', name: 'description', label: 'Gibt es mehr zu sagen oder Links?' },
 		{
 			type: 'entities',
@@ -72,8 +79,6 @@
 </script>
 
 <article>
-	<Title title={'Neues Ereignis'} />
-
 	<Form {initialValues} {fields} {afterSubmit} validationSchema={addEventSchema}>
 		<button
 			class="form-button mt-2 is-outlined"

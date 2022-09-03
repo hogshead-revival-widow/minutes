@@ -100,6 +100,30 @@ main {
 	@extend .help, .is-danger;
 }
 
+.form-divider {
+	display: flex;
+	align-items: center;
+	--text-divider-gap: 1rem;
+	@extend .block, .is-size-7, .mt-4, .mb-4;
+	text-transform: uppercase;
+}
+
+.form-divider::before,
+.form-divider::after {
+	content: '';
+	height: 1px;
+	@extend .has-background-grey-light;
+	flex-grow: 1;
+}
+
+.form-divider::before {
+	margin-right: var(--text-divider-gap);
+}
+
+.form-divider::after {
+	margin-left: var(--text-divider-gap);
+}
+
 .force-fullwidth {
 	width: 100% !important;
 }

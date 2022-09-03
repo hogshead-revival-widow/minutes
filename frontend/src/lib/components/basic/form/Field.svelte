@@ -24,6 +24,7 @@
 	export let name: string;
 	export let label: string = '';
 	export let hint: string | undefined = undefined;
+	export let divider: undefined | { label: string } = undefined;
 
 	const excludeKey = (obj: object) =>
 		Object.fromEntries(Object.entries(obj).filter(([key, value]) => key !== 'key'));
@@ -111,3 +112,7 @@
 
 	<p class="help mb-2 form-error" class:is-invisible={$errors[name] === ''}>{$errors[name]}</p>
 </div>
+
+{#if divider !== undefined}
+	<div class="form-divider ">{divider.label}</div>
+{/if}
