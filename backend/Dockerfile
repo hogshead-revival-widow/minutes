@@ -9,6 +9,7 @@ RUN apk add --no-cache supervisor \
     && pip install -r /code/requirements.txt
 COPY ./ /code/
 RUN pip install -e .
+RUN mkdir -p uploads
 #ENV ENV_FOR_MINUTES=production
 EXPOSE 8000
 CMD ["minutes", "--no-reload", "--host", "0.0.0.0"]
