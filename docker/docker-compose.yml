@@ -37,7 +37,7 @@ services:
         environment:
             ENV_FOR_MINUTES: production # development
             # alternative to providing the .secrets.toml (see examples/) you can also set the environment variables here
-            # all variables specified in .secrets.toml must have the prefix `MINUTES`
+            # all variables specified in .secrets.toml must have the prefix `minutes`
             # cf. for more information https://www.dynaconf.com/envvars/
             # e.g.:
-            # MINUTES_SERVER__CORS_ORIGINS: http://example.tld
+            # minutes_server__cors_origins: http://localhost:5173
