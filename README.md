@@ -66,7 +66,7 @@ Je nach Verwendungszweck empfiehlt sich in `.secrets.toml` unter `[production.db
 2. `docker-compose build`
 3. `docker-compose up`
 
-Die genutzte Konfiguration kann vollständig über `environment` im `docker-compose.yml` angegeben werden, dort finden sich auch Beispiele dazu.
+Die genutzte Konfiguration kann (für das Backend) über `environment` im `docker-compose.yml` angegeben werden, dort finden sich auch Beispiele dazu. Für das Frontend ist das nicht möglich, dort ist die `.env` aus `examples` in `frontend` erforderlich, da die Envvars während der Buildzeit gesetzt sein müssen.
 
 # Nutzung
 
