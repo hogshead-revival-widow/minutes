@@ -36,11 +36,6 @@
 				class="form-button  is-normal is-justify-content-flex-start"
 				on:click={() => (currentTab = tab)}
 			>
-				{#if tab !== 'REFERENCE'}
-					<span class="icon">
-						<Fa {...ICONS['PLUS']} class="mx-1" />
-					</span>
-				{/if}
 				<span class="icon">
 					<Fa {...ICONS[tab]} />
 				</span>

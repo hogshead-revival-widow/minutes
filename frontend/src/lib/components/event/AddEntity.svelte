@@ -79,6 +79,7 @@
 	</p>
 	<p class="control" style="width: 100%;">
 		<AutoComplete
+			showClear={false}
 			multiple={true}
 			hideArrow={true}
 			inputId="add-{name}"
@@ -132,7 +133,7 @@
 							{entityFields.find((field) => field.type === selected).title}
 						</span>
 					</a>
-					klicken oder Enter drücken.
+					klicken.
 				{:else}
 					Als
 					{#each entityFields as entityField, i}
