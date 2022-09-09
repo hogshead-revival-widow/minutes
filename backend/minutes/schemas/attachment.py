@@ -11,7 +11,7 @@ class AttachmentRead(WithID):
     @validator("link", "path", pre=True, always=True)
     def make_link(cls, v, *, values, **kwargs):
         if "path" in values:
-            return f"{settings.server.scheme}://{settings.server.host}:{settings.server.port}{settings.server.upload_path}/{values['path']}"
+            return f"{settings.server.scheme}://{settings.server.host}:{settings.server.port}/{settings.server.upload_dir}/{values['path']}"
         return v
 
 

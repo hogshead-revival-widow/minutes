@@ -9,11 +9,9 @@ node_modules
 .vercel
 .output
 build/*
-uploads/
 .svelte-kit
 .vscode
-# Secrets
-.secrets.toml
+
 
 .DS_STORE
 

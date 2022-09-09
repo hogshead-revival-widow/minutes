@@ -44,7 +44,7 @@ app.add_middleware(
 
 app.include_router(main_router)
 app.mount(
-    str(settings.server.upload_path),
+    "/" + settings.server.upload_dir,
     StaticFiles(directory=str(settings.server.upload_dir)),
     name="uploads",
 )

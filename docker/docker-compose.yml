@@ -25,12 +25,13 @@ services:
         ports:
             - 8000:8000
         volumes:
+            - ./uploads:/code/uploads # cf. MINUTES_server__upload_dir
             - ./database/database.db:/code/database.db
         depends_on:
             - minutes_setup
         restart: always
         environment:
             ENV_FOR_MINUTES: production # development
-            # override .secrets.toml variables (use prefix `MINUTES`)
+            # override config.toml variables (use prefix `MINUTES`)
             # cf. https://www.dynaconf.com/envvars/
             MINUTES_server__cors_origins: http://localhost:5173

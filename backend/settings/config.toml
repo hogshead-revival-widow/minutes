@@ -1,5 +1,9 @@
 dynaconf_merge = true
 
+#
+# Defaults
+#
+
 [default.db]
 uri = "sqlite:///database.db"
 connect_args = { check_same_thread = false }
@@ -7,9 +11,16 @@ connect_args = { check_same_thread = false }
 [default.time]
 tz_name = "Europe/Berlin"
 
+[default.server]
+upload_dir = "uploads"
+
 [default.about]
 title = "minutes API"
+contact = { name = "IDA", email = "idaBotHelp@gmail.com" }
 
+#
+# Development
+#
 
 [development.db]
 echo = false
@@ -22,5 +33,17 @@ host = "localhost"
 port = "8000"
 scheme = "http"
 
+#
+# Production
+#
+
 [production.db]
 echo = false
+
+[production.server]
+log_level = "error"
+reload = false
+cors_origins = ["http://????:????"]
+host = "0.0.0.0"
+port = "8000"
+scheme = "http"
