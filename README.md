@@ -34,13 +34,12 @@ _Minutes_ ist zwar unter http://localhost:5173/ erreichbar, wird aber einen Fehl
 
 1. `cd` ins Repo
 2. `cd minutes/backend/settings`
-3. Dort `.secrets.toml` nach dem Beispiel in `minutes/examples` anlegen und ggf. `config.toml` anpassen
+3. Ggf. `config.toml` anpassen
 4. `cd minutes/backend`
 5. `python3 -m venv .venv`
 6. `source .venv/bin/activate`
-7. `pip install .`
-8. `mkdir uploads` (oder was auch immer in in .secrets.toml angegeben wurde)
-9. `minutes` (vgl. `minutes --help` für Konfigurationsmöglichkeiten)
+7. `pip install -e .`
+8. `minutes` (vgl. `minutes --help` für Konfigurationsmöglichkeiten)
 
 Die API ist unter http://localhost:8000 (Swagger UI unter: http://localhost:8000/docs) erreichbar.
 
@@ -58,7 +57,7 @@ Mit `npm run preview` lässt sich die Produktivbuild ausprobieren.
 
 Statt `minutes` (Schritt 8) `ENV_FOR_MINUTES=production minutes` ausführen und die mit `?` markierten Werte in `minutes/backend/settings/config.toml` ersetzen.
 
-Je nach Verwendungszweck empfiehlt sich in `.secrets.toml` unter `[production.db]` eine andere Datenbank als SQLite (z. B. PostgreSQL) einzusetzen sowie uvicorn in Verbindung mit z. B. guvicorn zu nutzen; Informationen zu Letzterem finden sich [hier](https://fastapi.tiangolo.com/deployment/server-workers/).
+Je nach Verwendungszweck empfiehlt sich in `config.toml` unter `[production.db]` eine andere Datenbank als SQLite (z. B. PostgreSQL) einzusetzen sowie uvicorn in Verbindung mit z. B. guvicorn zu nutzen; Informationen zu Letzterem finden sich [hier](https://fastapi.tiangolo.com/deployment/server-workers/).
 
 ## Docker
 
