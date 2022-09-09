@@ -1,18 +1,9 @@
-export const listURLs: (text: string | null, allowedProtocols?: string[]) => string[] = (
-	text,
-	allowedProtocols = ['http', 'https']
-) => {
+export const listURLs = (text: string | null) => {
 	if (text === null || text.length === 0) return [];
-	console.log(text);
-	const pattern =
-		// eslint-disable-next-line no-useless-escape
-		/href="[^"]*"/gi;
-	const regex = new RegExp(pattern);
-	let urls = text.match(regex);
-	if (urls === null) return [];
-	urls = urls
-		.map((match) => match.slice(6, -1))
-		.filter((match) => allowedProtocols.some((protocol) => match.startsWith(`${protocol}://`)));
-	if (urls === null) return [];
-	return [...new Set(urls)];
+	const parser = new DOMParser();
+	const html = parser.parseFromString(text, 'text/html');
+	const links = html.querySelectorAll('a');
+	return Array.from(links)
+		.filter((link) => link?.href && link.href.length > 0 && link.innerText.length > 0)
+		.map((link) => ({ href: link.href, label: link.innerText }));
 };

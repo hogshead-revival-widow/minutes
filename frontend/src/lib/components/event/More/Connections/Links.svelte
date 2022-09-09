@@ -1,7 +1,9 @@
 <script lang="ts" context="module">
 	import type { Writable } from 'svelte/store';
 	import type { EventRead } from '$lib/api/data-contracts';
+	import Fa from 'svelte-fa';
 	import { listURLs } from '$lib/actions/links';
+	import { ICONS } from '$lib/config';
 </script>
 
 <script lang="ts">
@@ -21,13 +23,18 @@
 		</p>
 	{/if}
 {/if}
-{#each links as link}
-	<ul>
-		<li>
-			<a href={link} target="new">{link}</a>
-		</li>
-	</ul>
-{/each}
+
+<div class="tags block">
+	{#each links as link}
+		<a href={link.href} class="tag is-link" target="new">
+			<span class="icon">
+				<Fa {...ICONS['REFERENCE']} />
+			</span>
+			{link.label}
+		</a>
+	{/each}
+</div>
+
 {#if links.length > 0}
 	<p class="mt-2">
 		{@html howToAddLink}
