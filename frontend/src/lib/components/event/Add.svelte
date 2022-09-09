@@ -2,12 +2,11 @@
 	import { getContext, type ComponentProps } from 'svelte';
 	import { type Writable, writable } from 'svelte/store';
 	import Title from '$lib/components/basic/Title.svelte';
-	import Form from '$lib/components/basic/form/Form.svelte';
+	import Form, { type Fields } from '$lib/components/basic/form/Form.svelte';
 	import More from '$lib/components/event/More/index.svelte';
 	import { addEventSchema, contact } from '$lib/config';
 	import { quickAddEvent } from '$lib/actions/event';
 	import type { Filter } from '$lib/actions/filter';
-	import type Field from '$lib/components/basic/form/Field.svelte';
 	import type { CollectionRead, EventRead, EventCreate } from '$lib/api/data-contracts';
 </script>
 
@@ -32,7 +31,7 @@
 		description: '',
 		entities: []
 	};
-	const fields: Omit<ComponentProps<Field> & { name: keyof typeof initialValues }, 'key'>[] = [
+	const fields: Fields<typeof initialValues> = [
 		{ type: 'text', name: 'title', label: "Kurz gesagt: Worum geht's?" },
 		{ type: 'date', name: 'date', label: 'Wann ist es passiert?' },
 		{

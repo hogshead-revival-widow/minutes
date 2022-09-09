@@ -11,7 +11,7 @@
 <script lang="ts">
 	import AddEntity from '$lib/components/event/AddEntity.svelte';
 
-	export let key: Symbol;
+	export let key: Symbol | string;
 
 	export let type: 'text' | 'date' | 'time' | 'textarea' | 'editor' | 'entities' | 'slotted' =
 		'text';

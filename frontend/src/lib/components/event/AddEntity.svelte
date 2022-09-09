@@ -38,17 +38,16 @@
 	};
 
 	$: showEntities = $form[name].reduce(
-		(acc, value) => (acc.map((v) => v.id).includes(value.id) ? acc : [...acc, value]),
+		(acc, entity) => (acc.map((v) => v.id).includes(entity.id) ? acc : [...acc, entity]),
 		[]
 	);
-
-	let selected = 'all';
+	let selected = undefined;
 </script>
 
 {#if $form[name].length > 0}
 	<div class="tags block">
 		{#each showEntities as selectedEntity (selectedEntity.id)}
-			<span class="tag" transition:fade|local>
+			<span class="tag is-medium" transition:fade|local>
 				<span class="icon">
 					<Fa {...ICONS[selectedEntity.discriminator]} />
 				</span>
@@ -68,7 +67,7 @@
 	<p class="control">
 		<span class="select">
 			<select bind:value={selected}>
-				<option value="all">Alle</option>
+				<option value={undefined}>Alle</option>
 				{#each entityFields as entityField}
 					<option value={entityField.type}>{entityField.title}</option>
 				{/each}
@@ -83,9 +82,8 @@
 			inputId="add-{name}"
 			inputClassName="is-size-7"
 			searchFunction={async (name) => {
-				const searchOptions = { name };
-				if (selected !== 'all') searchOptions.discriminator = selected;
-				return await Minutes.searchEntities(searchOptions);
+				const search = { name, discriminator: selected };
+				return await Minutes.searchEntities(search);
 			}}
 			bind:selectedItem={$form[name]}
 			placeholder={'Hinzufügen...'}
@@ -120,7 +118,7 @@
 
 			<p slot="create" let:createText>
 				Nicht gefunden.
-				{#if selected !== 'all'}
+				{#if selected !== undefined}
 					Zum Hinzufügen als
 
 					<a href="" on:click|preventDefault={() => (discriminator = selected)}>

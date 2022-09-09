@@ -5,11 +5,16 @@
 	import { createForm } from 'svelte-forms-lib';
 	import Field from '$lib/components/basic/form/Field.svelte';
 	import type * as yup from 'yup';
+
+	export type Fields<initialValues> = (Omit<ComponentProps<Field>, 'key'> & {
+		name: keyof initialValues & string;
+	})[];
 </script>
 
 <script lang="ts">
-	export let initialValues: Record<string, any>;
-	export let fields: Omit<ComponentProps<Field> & { name: keyof typeof initialValues }, 'key'>[];
+	type F = $$Generic;
+	export let initialValues: F;
+	export let fields: Fields<typeof initialValues>;
 	export let validationSchema: yup.ObjectSchema<any>;
 	export let afterSubmit: (
 		values: typeof initialValues,
