@@ -66,7 +66,7 @@ Je nach Verwendungszweck empfiehlt sich in `.secrets.toml` unter `[production.db
 2. `docker-compose build`
 3. `docker-compose up`
 
-Die genutzte Konfiguration kann in den (Konfigurationsdateien)[#installation] angepasst werden.
+Die genutzte Konfiguration kann vollständig über `environment` im `docker-compose.yml` angegeben werden, dort finden sich auch Beispiele dazu.
 
 # Nutzung
 

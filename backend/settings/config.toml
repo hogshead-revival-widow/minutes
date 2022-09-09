@@ -1,5 +1,9 @@
 dynaconf_merge = true
 
+[default.db]
+uri = "sqlite:///database.db"
+connect_args = { check_same_thread = false }
+
 [default.time]
 tz_name = "Europe/Berlin"
 
@@ -18,17 +22,5 @@ host = "localhost"
 port = "8000"
 scheme = "http"
 
-[development.frontend]
-base_url = "http://localhost:5173"
-
-
-[production.frontend]
-base_url = "http://????:????"
-
-[production.server]
-log_level = "error"
-reload = false
-cors_origins = ["http://????:????"]
-host = "0.0.0.0"
-port = "8000"
-scheme = "https"
+[production.db]
+echo = false
