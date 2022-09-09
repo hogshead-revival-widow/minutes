@@ -1,6 +1,6 @@
 version: '3.4'
 services:
-    setup:
+    minutes_setup:
         image: alpine:latest
         volumes:
             - ./database:/mnt/setup
@@ -8,23 +8,18 @@ services:
             ash -c "touch /mnt/setup/database.db"
         restart: on-failure
 
-    frontend:
-        image: frontend
+    minutes_frontend:
         build:
             context: ./../frontend
             target: deploy-static
         ports:
             - 5173:5173
-        depends_on:
-            - setup
-            - backend
         volumes:
             - ./settings/nginx/nginx.conf:/etc/nginx/nginx.conf
         restart: always
         # as the environment variables must be present during build time, you can't specify them here
 
-    backend:
-        image: backend
+    minutes_backend:
         build:
             context: ./../backend
         ports:
@@ -32,12 +27,12 @@ services:
         volumes:
             - ./database/database.db:/code/database.db
         depends_on:
-            - setup
+            - minutes_setup
         restart: always
         environment:
             ENV_FOR_MINUTES: production # development
             # alternative to providing the .secrets.toml (see examples/) you can also set the environment variables here
-            # all variables specified in .secrets.toml must have the prefix `minutes`
+            # all variables specified in .secrets.toml must have the prefix `MINUTES`
             # cf. for more information https://www.dynaconf.com/envvars/
             # e.g.:
-            # minutes_server__cors_origins: http://localhost:5173
+            MINUTES_server__cors_origins: http://localhost:5173
