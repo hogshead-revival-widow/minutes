@@ -25,8 +25,6 @@
 			? $page.url.href
 			: $page.url.href.split('?')[0] + `/event/${currentEvent.id}`
 	}).`;
-
-	$: console.log($page.url.href.split('/').length);
 </script>
 
 <Dropdown {isUp} {isRight} bind:isActive {title}>

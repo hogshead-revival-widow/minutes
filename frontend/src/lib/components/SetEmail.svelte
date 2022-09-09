@@ -18,7 +18,6 @@
 	let isValidEmail = false;
 	$: {
 		addEmailSchema.isValid({ email }).then((valid) => {
-			console.log(valid, '?');
 			isValidEmail = email === '' ? false : valid;
 		});
 	}

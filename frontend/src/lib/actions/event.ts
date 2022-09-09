@@ -37,7 +37,6 @@ export const quickAddEvent = async ({
 }: EventParams & AddParams) => {
 	const storedCollection = get(collection);
 
-	console.log('hi');
 	const data: EventCreate = {
 		collectionId: storedCollection.id,
 		...values

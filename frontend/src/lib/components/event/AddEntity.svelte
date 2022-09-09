@@ -43,8 +43,6 @@
 	);
 
 	let selected = 'all';
-
-	$: console.log(selected);
 </script>
 
 {#if $form[name].length > 0}
