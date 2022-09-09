@@ -103,7 +103,13 @@
 		<ul>
 			{#each $currentEvent.referencedEvents as reference (reference.id)}
 				<li transition:fly|local class="is-flex is-justify-content-space-between">
-					{reference.title}
+					<a
+						href="/collection/{$currentEvent.collectionId}/event/{reference.id}"
+						target="new"
+						sveltekit:prefetch
+					>
+						{reference.title}
+					</a>
 
 					{#if !$currentEvent.isFrozen}
 						<button

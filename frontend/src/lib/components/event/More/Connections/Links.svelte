@@ -14,6 +14,12 @@
 </script>
 
 {#if links.length > 0}
+	<p class="mt-2">
+		{@html howToAddLink}
+	</p>
+{/if}
+
+{#if links.length > 0}
 	<p class="label">Links</p>
 {:else}
 	<p>Hier gibt es noch keine Links.</p>
@@ -24,19 +30,10 @@
 	{/if}
 {/if}
 
-<div class="tags block">
+<ul>
 	{#each links as link}
-		<a href={link.href} class="tag is-link" target="new">
-			<span class="icon">
-				<Fa {...ICONS['REFERENCE']} />
-			</span>
-			{link.label}
-		</a>
+		<li class="is-flex is-justify-content-space-between">
+			<a href={link.href} target="new">{link.label}</a>
+		</li>
 	{/each}
-</div>
-
-{#if links.length > 0}
-	<p class="mt-2">
-		{@html howToAddLink}
-	</p>
-{/if}
+</ul>
