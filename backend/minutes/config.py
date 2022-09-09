@@ -7,10 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 settings = Dynaconf(
     envvar_prefix="minutes",
     env_switcher="ENV_FOR_MINUTES",
-    settings_files=[
-        "settings/config.toml",
-        "settings/.secrets.toml",
-    ],
+    settings_files=["settings/config.toml"],
     environments=["development", "production"],
     load_dotenv=False,
 )
